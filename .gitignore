@@ -105,3 +105,6 @@ venv.bak/
 
 # Mac OS Files
 .DS_Store
+
+# VS Code
+.vscode/*
