@@ -12,9 +12,11 @@ Contains useful methods for the following purposes:
 
 At some point (with a more stable version), this library may become available as a package.
 
-In the meantime, this repository can be cloned and included in a project using a symbolic link. The following command can be used as reference to create such symbolic link.
+In the meantime, this repository can be cloned and included in "Other Project" using a symbolic link. The following command sequence can be used as reference to create such symbolic link.
 
 .. code-block::
 
+    $ git clone https://github.com/miballe/djdna-other-project.git
+    $ git clone https://github.com/miballe/djdna_common
+    $ cd djdna-other-project
     $ ln -s ../djdna_common/ djdna_common
-
