@@ -3,7 +3,7 @@ import pandas as pd
 import fastavro
 
 ARTICLES_STAT_FIELDS = ['an', 'company_codes', 'company_codes_about',
-                        'industry_codes', 'ingestion_datetime',
+                        'company_codes_occur', 'industry_codes', 'ingestion_datetime',
                         'language_code', 'modification_date',
                         'modification_datetime',
                         'publication_date', 'publication_datetime',
