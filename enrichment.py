@@ -16,13 +16,13 @@ def assign_embedding_value(arr_item):
 def add_embedding(articles_df, field) -> pd.DataFrame:
     art_list = articles_df[field].tolist()
     emb_items = []
-    i = 0
+    # i = 0
     for item in art_list:
-        i += 1
-        if(i % 100 == 0):
-            print('[{}]'.format(i), end='')
-        else:
-            print('.', end='')
+        # i += 1
+        # if(i % 100 == 0):
+        #     print('[{}]'.format(i), end='')
+        # else:
+        #     print('.', end='')
         try:
             emb_item = embed([item])[0]
         except Exception as e:
@@ -75,4 +75,3 @@ def add_textblob_sentiment(articles_df, field) -> pd.DataFrame:
     articles_df['textblob_sentiment_subjectivity'] = sentiment_series.apply(lambda x: x.subjectivity)
     articles_df['textblob_sentiment_score'] = sentiment_series.apply(lambda x: x.polarity * (1 - x.subjectivity))
     return articles_df
-
