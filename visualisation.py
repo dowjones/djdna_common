@@ -1,6 +1,5 @@
 import pandas as pd
-import numpy as np
-import taxonomy as tx
+import djdna_common.taxonomy as tx
 
 
 def industries_visual_hierarchy() -> pd.DataFrame:
