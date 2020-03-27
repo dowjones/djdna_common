@@ -1,5 +1,5 @@
 import pandas as pd
-import djdna_common.taxonomy as tx
+import factiva_common.taxonomy as tx
 
 
 def industries_visual_hierarchy() -> pd.DataFrame:
