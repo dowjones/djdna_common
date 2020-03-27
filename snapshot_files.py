@@ -40,9 +40,11 @@ def read_file(filepath, only_stats=True, merge_body=True) -> pd.DataFrame:
         r_df = r_df[ARTICLES_STAT_FIELDS]
 
     if (only_stats is False) & (merge_body is True):
-        r_df['body'] = r_df['snippet'] + "\n\n" + r_df['body']
+        r_df['body'] = r_df['snippet'] + '\n\n' + r_df['body']
         r_df.drop('snippet', axis=1, inplace=True)
 
+    r_df['body'] = r_df[['body']].apply(lambda x: '{}'.format(x[0]), axis=1)
+    
     for d_field in ARTICLE_DELETE_FIELDS:
         if d_field in r_df.columns:
             r_df.drop(d_field, axis=1, inplace=True)
