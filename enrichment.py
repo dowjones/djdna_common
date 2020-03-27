@@ -112,6 +112,8 @@ def extract_industries(industry_codes, industry_list, ind_field):  # common_name
 
 def add_industry_codes(articles_df):
     ref_industries = ftx.industries_hierarchy()
+    ref_industries['ind_fcode'] = ref_industries['ind_fcode'].str.lower()
+    ref_industries.set_index('ind_fcode', inplace=True)
     articles_df['industry_names'] = articles_df['industry_codes'].apply(lambda x: extract_industries(x, ref_industries, 'name'))
     articles_df['industry_fcodes'] = articles_df['industry_codes'].apply(lambda x: extract_industries(x, ref_industries, 'ind_fcode'))
     return articles_df
