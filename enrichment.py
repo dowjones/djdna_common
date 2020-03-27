@@ -99,3 +99,18 @@ def add_country_codes(articles_df):
     articles_df['country_alpha2'] = articles_df['region_codes'].apply(lambda x: extract_countries(x, ref_countries, 'alpha2'))
     articles_df['country_alpha3'] = articles_df['region_codes'].apply(lambda x: extract_countries(x, ref_countries, 'alpha3'))
     return articles_df
+
+
+def extract_industries(industry_codes, industry_list, field):  # common_name, alpha2, alpha3
+    ret_list = []
+    icodes = industry_list.split(',')
+    for code in icodes:
+        if code in country_list.index:
+            ret_list.append(country_list.loc[code][country_ix])
+    return ret_list
+
+
+def add_industry_codes(articles_df):
+    ref_industries = ftx.industries_hierarchy()
+    articles_df['industry_names'] = articles_df['industry_codes'].apply(lambda x: extract_industries(x, ref_industries))
+    return articles_df
