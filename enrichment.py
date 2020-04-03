@@ -101,12 +101,15 @@ def add_country_codes(articles_df):
     return articles_df
 
 
-def extract_industries(industry_codes, industry_list, ind_field):  # common_name, alpha2, alpha3
+def extract_industries(industry_codes, industry_list, ind_field):
     ret_list = []
-    icodes = industry_list.split(',')
+    icodes = industry_codes.split(',')
     for code in icodes:
         if code in industry_list.index:
-            ret_list.append(industry_list.loc[code][ind_field])
+            if ind_field == 'ind_fcode':
+                ret_list.append(code)
+            else:
+                ret_list.append(industry_list.loc[code][ind_field])
     return ret_list
 
 
